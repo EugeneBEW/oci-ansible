@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: add pub ssh keys
+      lineinfile:
+          dest: /home/{{ansible_user}}/.ssh/authorized_keys
+          state: present
+          insertafter: EOF
+          backup: no
+          line: 'ssh-rsa AAAAB3Nza-... your key here... KEY_DESCRIPTION'

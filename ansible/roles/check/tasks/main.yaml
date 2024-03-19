@@ -1,0 +1,48 @@
+---
+- name: Тестируем диски
+  ansible.builtin.shell:
+    cmd:  >
+          echo "### ****** ###" ;
+          hostname ;
+          echo "### Disk uasge ###" ;
+          df -h |
+          grep -v tmpfs |
+          grep -v loop |
+          grep -v udev |
+          grep -v Дост |
+          grep -v Size |
+          awk '{ print $2 ": " $5  " on " $1; i = $2 ; if (int($5)> 80) { print " alert" } else { if (int($5)> 70) print " warning"; }}' ;
+  register: df
+
+- name: Печатаем результаты по Дискам
+  ansible.builtin.debug:
+    var: df.stdout_lines
+
+- name: Проверка наличия проблем с нехваткой Диска
+  ansible.builtin.debug:
+    var: df.stdout
+  when: df.stdout.find('alert') != -1
+
+- name: Тестируем память
+  ansible.builtin.shell:
+    cmd:  >
+          echo "### Memory uasge ###" ;
+          free -lgw |
+          grep Mem |
+          awk '{ t=int($2); u=int($3); f=int($4); p=u/t*100; print "NOW RAM used: " p "%"; if ( p > 80) { print " alert" } else { if ( p > 70) print " warning"; } }' ;
+          free -lgw |
+          grep Low |
+          awk '{ t=int($2); u=int($3); f=int($4); p=u/t*100; print "MAX RAM used: " p "%"; if ( p > 80) { print " notice" } else { if ( p > 70) print " warning"; }}'
+  register: dm
+
+- name: Печатаем результаты по Памяти
+  ansible.builtin.debug:
+    var: dm.stdout_lines
+
+
+- name: Проверка наличия проблем с нехваткой памяти
+  ansible.builtin.debug:
+    var: dm.stdout
+  when: dm.stdout.find('alert') != -1
+
+
