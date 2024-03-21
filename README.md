@@ -90,7 +90,7 @@ that is the same as ./ansible/collections directory on the host system
 ### file editing and directory navigation
 You may use commands:
 ```
-ms
+mc
 vi 
 ```
 Don't forgot that changes persist if it made on the rw mounted locations 
@@ -98,6 +98,6 @@ Don't forgot that changes persist if it made on the rw mounted locations
 ### /root/scripts directory
 this directory is recommended place for OpenStack files like
 
-admin-openstack.rc 
+admin-openrc.sh
 
 rooket.sh + list-hosts.txt help make backup of VM's volumes in openstack
