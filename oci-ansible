@@ -2,13 +2,13 @@
 
 OCIVERSION=${OCIVERSION:-v6}
 OCINAME=${OCINAME:-oci-ansible}
-VAULT=${VAULT:-.vault_pass_prod4.txt}
+VAULT=${VAULT:-.vault.txt}
 
 make_defaults() {
 cat <<_DEFAULT_CFG_>ansible/ansible.cfg
 [defaults]
 ansible_managed = Настроено Ansible
-inventory = inventories/geop4/hosts
+inventory = inventories/project/hosts
 collections_path = ./collections
 vault_password_file = /.vault.txt
 gathering = smart
@@ -71,7 +71,7 @@ fi
 if [ -z $ANSIBLEDIR ]; then
 	# the first start create ansible directory tree
 	mkdir -p ansible/.ansible
-	mkdir -p ansible/inventories/geop4
+	mkdir -p ansible/inventories/project
 	mkdir -p ansible/collections
 	mkdir -p ansible/roles
 	mkdir -p ansible/files
