@@ -47,7 +47,8 @@ or
 
 oci-ansible is a simple docker run wrapper, which simplefiya directory and file mapping into container.
 
-It creates a desired directory structure and environment files under current dir at first start if not ./ansible/ dir exist:
+It creates a desired directory structure and environment files under current dir at first start 
+if ./ansible/ does not exist:
 ```
   ./ansible/.ansible
   ./ansible/inventories/project
