@@ -59,8 +59,9 @@ It creates a desired directory structure and environment files under current dir
 ./ansible - is a default dir when run in container
 
 You may set any environment variables for command execution in container via 	./ansible/.env
-```
+
 oci-ansible mount dirs and files into container:
+```
 		-v $VAULTFILE:/.vault.txt:ro \
 		-v $HOME/.ssh:/root/.ssh \
 		-v $ANSIBLEDIR:/ansible \
