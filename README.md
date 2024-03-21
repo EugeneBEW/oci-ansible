@@ -88,8 +88,11 @@ it place collection by default into  /ansible/collections in container
 that is the same as ./ansible/collections directory on the host system
 
 ### file editing and directory navigation
-use ms or vi for this 
-
+You may use commands:
+```
+ms
+vi 
+```
 Don't forgot that changes persist if it made on the rw mounted locations 
 
 ### /root/scripts directory
