@@ -58,7 +58,7 @@ if ./ansible/ does not exist:
   ./ansible/.env
   ./ansible/ansible.cfg
 ```
-./ansible - is a default dir when run in container
+/ansible - is a default directory in running container
 
 You may set any environment variables for command execution in container via ./ansible/.env
 
