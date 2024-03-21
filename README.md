@@ -46,6 +46,7 @@ or
 ### Explanation
 
 oci-ansible is a simple docker run wrapper, which simplefiya directory and file mapping into container.
+
 It creates a desired directory structure and environment files under current dir at first start if not ./ansible/ dir exist:
 ```
   ./ansible/.ansible
@@ -58,7 +59,7 @@ It creates a desired directory structure and environment files under current dir
 ```
 ./ansible - is a default dir when run in container
 
-You may set any environment variables for command execution in container via 	./ansible/.env
+You may set any environment variables for command execution in container via ./ansible/.env
 
 oci-ansible mount dirs and files into container:
 ```
@@ -81,15 +82,19 @@ See oci-ansible script for more details.
 
 ### ansible-galaxy
 ansible-galaxy also available under container environment
-it place collection by default into  /ansible/collections in cis container 
-which maps to ./ansible/collections dorectory on the host system
+
+it place collection by default into  /ansible/collections in container 
+
+that is the same as ./ansible/collections directory on the host system
 
 ### file editing and directory navigation
 use ms or vi for this 
+
 Don't forgot that changes persist if it made on the rw mounted locations 
 
 ### /root/scripts directory
 this directory is recommended place for OpenStack files like
+
 admin-openstack.rc 
 
 rooket.sh + list-hosts.txt help make backup of VM's volumes in openstack
