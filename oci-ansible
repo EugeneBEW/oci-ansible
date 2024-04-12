@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-OCIVERSION=${OCIVERSION:-v6}
+OCIVERSION=${OCIVERSION:-v7}
 OCINAME=${OCINAME:-oci-ansible}
 VAULT=${VAULT:-.vault.txt}
 
