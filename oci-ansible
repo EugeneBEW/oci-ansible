@@ -94,6 +94,7 @@ if [ -n $VAULTFILE ]; then
 		-v $ANSIBLEDIR:/ansible \
 		-v $SCRIPTSDIR:/root/scripts \
 		-v /etc/timezone:/etc/timezone:ro \
+		-v /etc/resolv.conf:/etc/resolv.conf:ro \
 		$OCINAME:$OCIVERSION $@
 else
 	echo "can't find $VAULT for maping into container"
